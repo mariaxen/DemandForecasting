@@ -1,7 +1,7 @@
 ##This script is used to clean and prepare the consumption dataset for analysis
 
 #Set the working directory
-setwd('D:/PhD/R_files')
+setwd('')
 
 #Run other scripts you need
 if(!exists("foo", mode="function")) source("Import_Libraries.R")
