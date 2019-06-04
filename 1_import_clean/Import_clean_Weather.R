@@ -2,18 +2,20 @@
 
 #Weather observation data
 #Run your function through another script
-setwd('D:/PhD/R_files')
+setwd('')
 if(!exists("foo", mode="function")) source("Stations.R")
 
 #Increase memory limit
 memory.limit(17500000000000)
 
 #Set your working directory
-setwd('D:/PhD/Data/MIDAS')
+setwd('')
+
+#Get file names
 folders <- list.files()
 
 for (i in 1:length(folders)){
-  wd <- paste('D:/PhD/Data/MIDAS/',folders[i], sep = "")
+  wd <- paste('D:/path/',folders[i], sep = "")
   setwd(wd)
   files <- list.files()
   Weather_Data <- list()
