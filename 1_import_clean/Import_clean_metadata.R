@@ -1,15 +1,17 @@
 #Run your function through another script
-setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/R_files/SCRIPTS/2_statistical_analysis')
+setwd('')
 if(!exists("foo", mode="function")) source("User_defined_functions.R")
 
 #Set your working directory (wd)
-setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/Data')#Import your data in a data frame
+setwd('')
+
+#Import your data in a data frame
 metadata  <- read.xlsx("household_metadata.xls", sheetIndex = 1)
 occupancy <- read.xlsx("household_metadata.xls", sheetIndex = 3)
 occupancy <- occupancy[!duplicated(occupancy), ]
 
 #Import additional data for each file
-setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/Data/Consumption')
+setwd('')
 #Get the file names in your wd
 files  <-list.files()
 fileNo <- length(files)
@@ -57,13 +59,3 @@ final$occupancy[final$Occupants>=2 & final$Occupants<3] <- "2"
 final$occupancy[final$Occupants<2] <- "1"
 
 final$ID <- as.character(paste0("ID", final$ID))
-
-#final$Occupants <- as.numeric(final$Occupants)
-#final$Occupants[final$Occupants>=4.5] <- "5+"
-#final$Occupants[final$Occupants>=3.5 & final$Occupants<4.5] <- "4"
-#final$Occupants[final$Occupants>=2.5 & final$Occupants<3.5] <- "3"
-#final$Occupants[final$Occupants>=1.5 & final$Occupants<2.5] <- "2"
-#final$Occupants[final$Occupants>=0.5 & final$Occupants<1.5] <- "1"
-
-#Run your function through another script
-setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/R_files/SCRIPTS/2_statistical_analysis')
