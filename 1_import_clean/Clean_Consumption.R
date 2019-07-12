@@ -1,12 +1,12 @@
 ##This script is used to clean and prepare the consumption dataset for analysis
 
 #Set the working directory
-setwd('')
+setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/R_files/SCRIPTS/1_import_clean')
 
 #Run other scripts you need
 if(!exists("foo", mode="function")) source("Import_Libraries.R")
 if(!exists("foo", mode="function")) source("User_defined_functions.R")
-if(!exists("foo", mode="function")) source("Metadata_Final.R")
+if(!exists("foo", mode="function")) source("Import_clean_metadata.R")
 
 #Remove rows with initial identical recordings
 df.list <- lapply(df.list, removedupl, "V3")

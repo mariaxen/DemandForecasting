@@ -1,12 +1,12 @@
 #Set your working directory
-setwd('')
+setwd('D:/PhD/R_files')
 
 #Run your user-defined functions and import libraries through other scripts
 if(!exists("foo", mode="function")) source("functions.R")
 if(!exists("foo", mode="function")) source("Import_Libraries.R")
 
 #Set your working directory
-setwd('')
+setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/PhD/Data/Consumption')
 
 #Get the file names in your wd
 files <- list.files()

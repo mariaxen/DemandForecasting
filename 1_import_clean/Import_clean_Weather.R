@@ -1,21 +1,31 @@
 ##This script imports and prepares the weather dataset for the analysis
 
-#Weather observation data
 #Run your function through another script
-setwd('')
-if(!exists("foo", mode="function")) source("Stations.R")
+setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/R_files/SCRIPTS/1_import_clean')
+if(!exists("foo", mode="function")) source("Import_Libraries.R")
+if(!exists("foo", mode="function")) source("User_defined_functions.R")
 
 #Increase memory limit
 memory.limit(17500000000000)
 
-#Set your working directory
-setwd('')
+#Set your working directory (wd)
+setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/Data')
+#Import your weather stations
+Stations <- list()
+for (i in 1:6){
+  Stations[[i]] <- read.xlsx('Stations.xlsx', sheetIndex = i, stringsAsFactors=FALSE)
+}
+Stations <- do.call("rbind", Stations)
+Stations$Station.name <- str_replace_all(Stations$Station.name, "[^a-zA-Z0-9]", " ")
 
-#Get file names
+#Set your working directory
+setwd('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/Data/MIDAS')
+
+#Import your weather data
 folders <- list.files()
 
 for (i in 1:length(folders)){
-  wd <- paste('D:/path/',folders[i], sep = "")
+  wd <- paste('//isad.isadroot.ex.ac.uk/UOE/User/Desktop/Data/MIDAS/',folders[i], sep = "")
   setwd(wd)
   files <- list.files()
   Weather_Data <- list()

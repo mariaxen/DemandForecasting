@@ -1041,13 +1041,13 @@ MAPE_days_J <- function(dataS, variables, splitCol, temporal, Days_pred, NoTrees
   rf.form   <- as.formula(paste(predDay, variables, sep="~"))
   
   #############
-  fit <-  randomForest(rf.form, 
-                       data=HH_cal,
-                       ntree = NoTrees,
-                       nodesize = NodeSize,
-                       mtry = MTry)
+#  fit <-  randomForest(rf.form, 
+#                       data=HH_cal,
+#                       ntree = NoTrees,
+#                       nodesize = NodeSize,
+#                       mtry = MTry)
   
-#  fit <- lm(rf.form, data=HH_cal)
+  fit <- lm(rf.form, data=HH_cal)
   #####Cal/Val data#####
   #Choose cal/val dataset
   HH_cal[ , "Prediction"] <- predict(fit, HH_cal)
